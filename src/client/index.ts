@@ -16,11 +16,20 @@ cookies.forEach(cookie => {
         }
     });
 });
+export const loginClient = wrapper(axios.create({
+  baseURL: 'https://accounts.kakao.com',
+  jar: cookieJar,
+  withCredentials: true,
+}));
 
-export default function client(url:string){
-    return wrapper(axios.create({
-        baseURL: url,
-        jar: cookieJar,
-        withCredentials: true,
-    }));
-}
+export const tiaraClient = wrapper(axios.create({
+  baseURL: 'https://stat.tiara.kakao.com',
+  jar: cookieJar,
+  withCredentials: true,
+}));
+
+export const shareClient = wrapper(axios.create({
+  baseURL: 'https://sharer.kakao.com',
+  jar: cookieJar,
+  withCredentials: true,
+}));
